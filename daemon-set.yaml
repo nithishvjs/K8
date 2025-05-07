@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: scratch-daemonset
+  labels:
+    app: scratch
+spec:
+  selector:
+    matchLabels:
+      app: scratch
+  template:
+    metadata:
+      labels:
+        app: scratch
+    spec:
+      containers:
+      - name: scratch
+        image: scratch:latest
+        ports:
+        - containerPort: 81
